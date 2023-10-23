@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tilt Neon', sans-serif;
+}
+
+body{
+    background-color: #8080c0;
+}
+i{
+  font-size: 20px;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(45deg,#8080c0,tomato);
+    .calculadora{
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 300px;
+        height: 30em;
+        padding: .8em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "pan pan pan pan"
+                             "bot bot bot bot";
+        background-color: #16171d;
+        box-shadow: 2px 2px 8px black;
+      #pantalla{
+        width: 100%;
+        height: 10em;
+        box-shadow: inset 0px 1px 3px 2px rgb(53, 53, 53);
+        background-color:rgb(0, 0, 0);
+        grid-area: pan;
+        font-family: 'Tektur', sans-serif;
+        font-size: 16px;
+        letter-spacing: 3px;
+        color: springgreen;
+        padding: .5em;
+        >textarea{
+          width: 100%;
+          height: 80%;
+          resize: none;
+          background: transparent;
+        }
+        >input{
+          width: 100%;
+          height: 20%;
+          background: transparent;
+        }
+      }
+      #botones{
+        width: 100%;
+        height: 18em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "bcsb bcsb bcsb bcsb"
+                             "nume nume nume ope"
+                             "nume nume nume ope"
+                             "nume nume nume ope"
+                             "nume nume nume ope"
+                             "nume nume nume ope";
+        grid-area: bot;
+        .btn{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border: .1px solid gray;
+          cursor: pointer;
+        }
+        .btn:hover{
+          background-color: #16171d3a;
+        }
+        
+        .boton-clear-back{
+          grid-area: bcsb;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-areas: "opx1 opx2 opx2 bspc";
+          background-color:#8080c0;
+          color: #3c3c5a;
+          #clear{
+            grid-area: opx1;
+          }
+          #clear-entry{
+            grid-area: opx2;
+          }
+          #borrar-atras{
+            grid-area: bspc;
+          }
+        }
+        .boton-operadores{
+          grid-area: ope;
+          background-color: tomato;
+          color: whitesmoke;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-area: "divi"
+                     "multi"
+                     "rest"
+                     "suma"
+                     "igua";
+        }
+        .boton-numeros{
+          background-color: rgb(219, 219, 219);
+          grid-area: nume;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-areas: "opz1 opz2 opz2"
+                               "siet ocho nuev"
+                               "cuat cinc seis"
+                               "unoo doss tres"
+                               "mame cero punt";
+          #potencia{
+            grid-area: opz1;
+          }
+          #raiz-2{
+            grid-area: opz2;
+          }
+          #siete{
+            grid-area: siet;
+          }
+          #ocho{
+            grid-area: ocho;
+          }
+          #nueve{
+            grid-area: nuev;
+          }
+          #seis{
+            grid-area: seis;
+          }
+          #cinco{
+            grid-area:cinc;
+          }
+          #cuatro{
+            grid-area: cuat;
+          }
+          #uno{
+            grid-area: unoo;
+          }
+          #dos{
+            grid-area: doss;
+          }
+          #tres{
+            grid-area: tres;
+          }
+          #ma-meno{
+            grid-area: mame;
+          }
+          #cero{
+            grid-area: cero;
+          }
+          #punto{
+            grid-area: punt;
+          }
+        }
+      }
+    }
+}
