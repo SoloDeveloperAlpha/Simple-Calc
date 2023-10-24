@@ -77,11 +77,15 @@ window.onload=function() {
         }
         const patr1= /√(\d+)/g;
         const patr2= /(\d+)√(\d+)/g;
+        
         if(patr1.test(contenido)){
             contenido = contenido.replace(patr1,'Math.sqrt($1)');
-        }else if(patr2.test(contenido)){
-            contenido = contenido.replace(/(\d+)√(\d+)/g, '$1*Math.sqrt($2)');
         }
+        else if(patr2.test(contenido)){
+                
+                
+            }
+        
         
         try{
             let resul=eval(contenido);
