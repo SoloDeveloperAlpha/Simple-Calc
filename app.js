@@ -15,6 +15,7 @@ window.onload=function() {
     const pot=document.getElementById('potencia');
     const raiz=document.getElementById('raiz-2');
     let opInic=false;
+    let resul;
 
     if(txta.scrollHeight>txta.clientHeight){
         txta.value=txta.value.substring(1);
@@ -74,27 +75,28 @@ window.onload=function() {
         let contenido=ingreso.value;
         if(contenido.includes("^")){
             contenido = ingreso.value.replace(/\^/g,"**");
-        }
-        const patr1= /√(\d+)/g;
-        const patr2= /(\d+)√(\d+)/g;
-        
-        if(patr1.test(contenido)){
-            contenido = contenido.replace(patr1,'Math.sqrt($1)');
-        }
-        else if(patr2.test(contenido)){
-                
-                
+        }else if(contenido.includes("√")){
+            let patr1= /√(\d+)/g;
+            let patr2= /(\d+)√(\d+)/g;
+            if(contenido.match(patr2)){
+                contenido=contenido.replace(/(\d+)√(\d+)/g,'$1*Math.sqrt($2)');
+            }else if(contenido.match(patr1)){
+                contenido = contenido.replace(/√(\d+)/g,'Math.sqrt($1)');
             }
+            
+        }
         
         
         try{
-            let resul=eval(contenido);
+            resul=eval(contenido);
+            
             if(typeof resul === 'number' && !Number.isInteger(resul)){
                 resul=resul.toFixed(2);
             }
             ingreso.value="="+resul;
             txta.value+=resul+"\n";
         }catch(error){
+            console.log(error);
             ingreso.value="ERROR";
         }
     });
@@ -147,4 +149,6 @@ window.onload=function() {
             opInic=false;
         }
     });
+
+    
 };
